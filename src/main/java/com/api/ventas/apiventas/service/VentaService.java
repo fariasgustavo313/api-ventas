@@ -40,6 +40,11 @@ public class VentaService implements I_VentaService {
                 if (productoExistente != null && productoExistente.getStock_disponible() >= producto.getCantidad()) {
                     productosAsociados.add(productoExistente);
                     subtotal += producto.getCantidad() * productoExistente.getCosto();
+
+                    Long stock_actual = productoExistente.getStock_disponible() - producto.getCantidad();
+                    productoExistente.setStock_disponible(stock_actual);
+                    interProducto.editarProducto(productoExistente.getId_producto(), productoExistente);
+
                     } else {
                         System.out.println("El producto " + producto.getId_producto() + " no cuenta con stock suficiente");
                 }

@@ -13,5 +13,4 @@ public interface I_ProductoService {
     public Producto traerProducto(Long id);
     public Producto traerProductoPorNombre(String nombre);
     public List<Producto> listaProductosPocoStock(Long stock);
-    public void actualizarStock(Long id, Long stockActual);
 }

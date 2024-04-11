@@ -61,9 +61,4 @@ public class ProductoService implements I_ProductoService {
         }
         return nuevaListaProdcutos;
     }
-
-    @Override
-    public void actualizarStock(Long id, Long stockActual) {
-        productoRepository.actualizarStock(id, stockActual);
-    }
 }
