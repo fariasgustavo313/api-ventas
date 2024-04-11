@@ -5,14 +5,19 @@ La API Ventas es una plataforma diseñada para gestionar ventas, clientes y prod
 Características principales
 
 •	Gestión de productos: Permite agregar, actualizar, eliminar y obtener información detallada de los productos disponibles para la venta.
+
 •	Gestión de clientes: Facilita la gestión de clientes, incluyendo la posibilidad de crear, actualizar y eliminar registros de clientes, así como también obtener información detallada de cada cliente.
+
 •	Registro de ventas: Permite realizar ventas, asociando productos previamente registrados a un cliente específico y calculando automáticamente el total de la venta.
 
 Tecnologías utilizadas
 
 •	Spring Boot 3.2.4: Framework de desarrollo de aplicaciones Java.
+
 •	Spring Data JPA: Facilita el acceso y la manipulación de datos utilizando el framework Hibernate.
+
 •	MySQL: Sistema de gestión de bases de datos relacional.
+
 •	Hibernate: Framework de mapeo objeto-relacional (ORM) para la gestión de bases de datos.
 
 Cómo usar
@@ -24,4 +29,5 @@ Cómo usar
 
 Contacto
 Para cualquier consulta o sugerencia, no dudes en ponerte en contacto:
+
 •	Email: gustavoe_88@yahoo.com.ar
