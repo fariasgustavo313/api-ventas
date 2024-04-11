@@ -1,5 +1,6 @@
 package com.api.ventas.apiventas.controller;
 
+import com.api.ventas.apiventas.dto.VentaDTO;
 import com.api.ventas.apiventas.model.Producto;
 import com.api.ventas.apiventas.model.Venta;
 import com.api.ventas.apiventas.service.I_VentaService;
@@ -53,5 +54,10 @@ public class VentaController {
     @GetMapping("/fecha")
     public String obtenerTotalVentasPorFecha(@RequestParam LocalDate fecha_venta) {
         return interVenta.obtenerTotalVentasPorFecha(fecha_venta);
+    }
+
+    @GetMapping("mayor_venta")
+    public VentaDTO traerMayorVenta() {
+        return interVenta.traerMayorVenta();
     }
 }

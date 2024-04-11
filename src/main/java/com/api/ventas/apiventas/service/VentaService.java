@@ -1,5 +1,6 @@
 package com.api.ventas.apiventas.service;
 
+import com.api.ventas.apiventas.dto.VentaDTO;
 import com.api.ventas.apiventas.model.Cliente;
 import com.api.ventas.apiventas.model.Producto;
 import com.api.ventas.apiventas.model.Venta;
@@ -103,5 +104,19 @@ public class VentaService implements I_VentaService {
             System.out.println("Distinto formato de fechas");
         }
         return "Fecha: " + fecha_venta + ", Cantidad de ventas: " + contadorVentas + " total vendido: " + subtotal;
+    }
+
+    @Override
+    public VentaDTO traerMayorVenta() {
+        Venta vta =  ventaRepository.traerMayorVenta();
+        VentaDTO vtaDTO = new VentaDTO();
+
+        vtaDTO.setId_venta(vta.getId_venta());
+        vtaDTO.setNombre_cliente(vta.getCliente().getNombre());
+        vtaDTO.setApellido_cliente(vta.getCliente().getApellido());
+        vtaDTO.setCantidad_productos(vta.getLista_productos().size());
+        vtaDTO.setTotal_venta(vta.getTotal());
+
+        return vtaDTO;
     }
 }

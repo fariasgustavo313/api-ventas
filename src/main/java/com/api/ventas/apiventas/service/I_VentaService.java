@@ -1,5 +1,6 @@
 package com.api.ventas.apiventas.service;
 
+import com.api.ventas.apiventas.dto.VentaDTO;
 import com.api.ventas.apiventas.model.Producto;
 import com.api.ventas.apiventas.model.Venta;
 
@@ -15,4 +16,5 @@ public interface I_VentaService {
     public Venta traerVenta(Long id);
     public List<Producto> traerProductosPorVenta(Long id);
     public String obtenerTotalVentasPorFecha(LocalDate fecha_venta);
+    public VentaDTO traerMayorVenta();
 }
