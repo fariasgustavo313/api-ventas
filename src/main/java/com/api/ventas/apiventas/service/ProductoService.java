@@ -5,6 +5,7 @@ import com.api.ventas.apiventas.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -42,5 +43,27 @@ public class ProductoService implements I_ProductoService {
     @Override
     public Producto traerProducto(Long id) {
         return productoRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Producto traerProductoPorNombre(String nombre) {
+        return productoRepository.traerProductoPorNombre(nombre);
+    }
+
+    @Override
+    public List<Producto> listaProductosPocoStock(Long stock) {
+        List<Producto> productos = this.traerListaProductos();
+        List<Producto> nuevaListaProdcutos = new ArrayList<>();
+        for (Producto producto : productos) {
+            if (producto.getStock_disponible() <= stock) {
+                nuevaListaProdcutos.add(producto);
+            }
+        }
+        return nuevaListaProdcutos;
+    }
+
+    @Override
+    public void actualizarStock(Long id, Long stockActual) {
+        productoRepository.actualizarStock(id, stockActual);
     }
 }
