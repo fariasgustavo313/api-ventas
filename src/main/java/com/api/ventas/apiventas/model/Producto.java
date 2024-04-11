@@ -1,13 +1,12 @@
 package com.api.ventas.apiventas.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,4 +23,6 @@ public class Producto {
     private double costo;
     private Long cantidad;
     private Long stock_disponible;
+    @OneToMany(mappedBy = "lista_productos")
+    private List<Venta> lista_ventas;
 }

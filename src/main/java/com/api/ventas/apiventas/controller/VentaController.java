@@ -1,11 +1,16 @@
 package com.api.ventas.apiventas.controller;
 
+import com.api.ventas.apiventas.model.Producto;
 import com.api.ventas.apiventas.model.Venta;
 import com.api.ventas.apiventas.service.I_VentaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/ventas")
@@ -38,5 +43,15 @@ public class VentaController {
     @GetMapping("/{id}")
     public Venta traerVenta(@PathVariable Long id) {
         return interVenta.traerVenta(id);
+    }
+
+    @GetMapping("/productos/{id}")
+    public List<Producto> traerProductosPorVenta(@PathVariable Long id) {
+        return interVenta.traerProductosPorVenta(id);
+    }
+
+    @GetMapping("/fecha")
+    public String obtenerTotalVentasPorFecha(@RequestParam LocalDate fecha_venta) {
+        return interVenta.obtenerTotalVentasPorFecha(fecha_venta);
     }
 }

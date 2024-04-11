@@ -11,4 +11,5 @@ public interface I_ClienteService {
     public void editarcliente(Long id, Cliente cliente);
     public List<Cliente> traerListaClientes();
     public Cliente traerCliente(Long id);
+    public Cliente traerClientePorDni(String dni);
 }

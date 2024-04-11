@@ -41,4 +41,9 @@ public class ClienteService implements I_ClienteService {
     public Cliente traerCliente(Long id) {
         return clienteRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public Cliente traerClientePorDni(String dni) {
+        return clienteRepository.traerClientePorDni(dni);
+    }
 }

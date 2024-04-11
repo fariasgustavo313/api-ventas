@@ -19,11 +19,14 @@ public class Venta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_venta;
-    @Temporal(TemporalType.DATE)
     private LocalDate fecha_venta;
     private double total;
-    @OneToMany
+    @ManyToMany
+    @JoinTable(name = "venta_lista_productos",
+                joinColumns = @JoinColumn(name = "id_venta"),
+                inverseJoinColumns = @JoinColumn(name = "id_producto"))
     private List<Producto> lista_productos;
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 }

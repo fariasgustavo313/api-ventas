@@ -39,4 +39,9 @@ public class Productocontroller {
     public Producto traerProducto(@PathVariable Long id) {
         return interProducto.traerProducto(id);
     }
+
+    @GetMapping("/stock/{stock}")
+    public List<Producto> listaProductosPorStock(@PathVariable Long stock) {
+        return interProducto.listaProductosPocoStock(stock);
+    }
 }
